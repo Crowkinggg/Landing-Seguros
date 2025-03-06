@@ -1,0 +1,156 @@
+---
+const services = [
+  {
+    icon: 'fa-car',
+    title: 'Seguro de Auto',
+    description: 'Protección completa para tu vehículo contra accidentes, robo y responsabilidad civil.',
+    value: 'Auto'
+  },
+  {
+    icon: 'fa-house',
+    title: 'Seguro de Hogar',
+    description: 'Cobertura para tu casa y pertenencias contra incendios, robos y desastres naturales.',
+    value: 'Hogar'
+  },
+  {
+    icon: 'fa-heart-pulse',
+    title: 'Seguro de Vida',
+    description: 'Tranquilidad financiera para tus seres queridos en caso de fallecimiento.',
+    value: 'Vida'
+  },
+  {
+    icon: 'fa-hospital',
+    title: 'Seguro de Gastos Médicos',
+    description: 'Atención médica de calidad sin preocuparte por los costos.',
+    value: 'Gastos Médicos'
+  },
+  {
+    icon: 'fa-briefcase',
+    title: 'Seguro de Negocio',
+    description: 'Protección integral para tu empresa, empleados y activos comerciales.',
+    value: 'Negocio'
+  },
+  {
+    icon: 'fa-plane',
+    title: 'Seguro de Viaje',
+    description: 'Cobertura médica y de cancelación para tus viajes nacionales e internacionales.',
+    value: 'Viaje'
+  }
+];
+---
+
+<section id="servicios" class="section services-section">
+  <div class="container">
+    <div class="section-title text-center">
+      <h2>Nuestros Servicios</h2>
+      <p>Ofrecemos una amplia gama de seguros para cubrir todas tus necesidades</p>
+    </div>
+    
+    <div class="services-grid">
+      {services.map(service => (
+        <div class="service-card card" data-insurance-type={service.value}>
+          <div class="service-icon">
+            <i class={`fas ${service.icon}`}></i>
+          </div>
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+          <a href="#contacto" class="service-link">Solicitar información <i class="fas fa-arrow-right"></i></a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    background-color: #f8f9fa;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  .service-card {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  .service-icon {
+    font-size: 3rem;
+    color: rgb(var(--primary));
+    margin-bottom: 1.5rem;
+  }
+  .service-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  .service-link {
+    margin-top: auto;
+    display: inline-block;
+    color: rgb(var(--primary));
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+  }
+  .service-link:hover {
+    color: rgba(var(--primary), 0.8);
+  }
+  .service-link i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+  }
+  .service-link:hover i {
+    transform: translateX(5px);
+  }
+  
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    serviceCards.forEach(card => {
+      // Hacer que toda la tarjeta sea clickeable
+      card.addEventListener('click', () => {
+        const insuranceType = card.getAttribute('data-insurance-type');
+        const selectElement = document.getElementById('tipoSeguro');
+        
+        if (selectElement) {
+          // Seleccionar la opción correspondiente en el formulario
+          selectElement.value = insuranceType;
+          
+          // Desplazarse hasta el formulario de contacto
+          document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
+          
+          // Resaltar el campo para indicar que ha sido seleccionado
+          selectElement.classList.add('highlighted');
+          setTimeout(() => {
+            selectElement.classList.remove('highlighted');
+          }, 1500);
+        }
+      });
+      
+      // Evitar que el enlace dentro de la tarjeta interfiera con el clic de la tarjeta
+      const link = card.querySelector('.service-link');
+      if (link) {
+        link.addEventListener('click', (e) => {
+          e.stopPropagation(); // Evita que el evento se propague a la tarjeta
+          // El comportamiento predeterminado del enlace (navegar a #contacto) sigue funcionando
+        });
+      }
+    });
+  });
+</script>

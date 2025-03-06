@@ -1,0 +1,183 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Asesor Rafael Vidal - Seguros personalizados para proteger lo que más te importa. Contáctanos hoy mismo." />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--primary: 0, 75, 141; /* #004B8D en RGB */
+		--secondary: 108, 117, 125;
+		--accent: 246, 137, 51; /* #F68933 en RGB */
+		--light: 248, 249, 250;
+		--dark: 52, 58, 64;
+		--gradient: linear-gradient(
+			45deg,
+			rgb(var(--primary)),
+			rgb(var(--accent)) 70%
+		);
+	}
+	html {
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		background: #fff;
+		scroll-behavior: smooth;
+	}
+	body {
+		margin: 0;
+		padding: 0;
+		color: rgb(var(--dark));
+		line-height: 1.6;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		margin-top: 0;
+		font-weight: 700;
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+	.container {
+		width: 90%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 15px;
+	}
+	.btn {
+		display: inline-block;
+		font-weight: 600;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		user-select: none;
+		border: 1px solid transparent;
+		padding: 0.75rem 1.5rem;
+		font-size: 1rem;
+		line-height: 1.5;
+		border-radius: 0.25rem;
+		transition: all 0.2s ease-in-out;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	.btn-primary {
+		color: #fff;
+		background-color: rgb(var(--primary));
+		border-color: rgb(var(--primary));
+	}
+	.btn-primary:hover {
+		background-color: rgba(var(--primary), 0.9);
+	}
+	.btn-accent {
+		color: #fff;
+		background-color: rgb(var(--accent));
+		border-color: rgb(var(--accent));
+	}
+	.btn-accent:hover {
+		background-color: rgba(var(--accent), 0.9);
+	}
+	.text-center {
+		text-align: center;
+	}
+	.section {
+		padding: 5rem 0;
+	}
+	.section-title {
+		margin-bottom: 3rem;
+	}
+	.section-title h2 {
+		font-size: 2.5rem;
+		position: relative;
+		display: inline-block;
+		margin-bottom: 1.5rem;
+	}
+	.section-title h2::after {
+		content: '';
+		position: absolute;
+		left: 50%;
+		bottom: -10px;
+		transform: translateX(-50%);
+		width: 50px;
+		height: 3px;
+		background-color: rgb(var(--accent));
+	}
+	.card {
+		background: #fff;
+		border-radius: 8px;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		padding: 2rem;
+		margin-bottom: 2rem;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+	.card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+	}
+	.social-icons {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		margin: 1.5rem 0;
+	}
+	.social-icons a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background-color: rgb(var(--primary));
+		color: white;
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+	.social-icons a:hover {
+		transform: translateY(-3px);
+		background-color: rgba(var(--primary), 0.9);
+	}
+	.whatsapp-float {
+		position: fixed;
+		bottom: 30px;
+		right: 30px;
+		background-color: #25d366;
+		color: #fff;
+		border-radius: 50px;
+		text-align: center;
+		font-size: 24px;
+		width: 60px;
+		height: 60px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+		z-index: 100;
+		transition: all 0.3s ease;
+	}
+	.whatsapp-float:hover {
+		transform: scale(1.1);
+	}
+	@media (max-width: 768px) {
+		.section {
+			padding: 3rem 0;
+		}
+		.section-title h2 {
+			font-size: 2rem;
+		}
+	}
+</style>

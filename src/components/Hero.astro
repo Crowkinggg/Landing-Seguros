@@ -1,0 +1,75 @@
+---
+---
+
+<section id="inicio" class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Protege lo que más importa</h1>
+      <p>Soluciones de seguros personalizadas para ti y tu familia</p>
+      <div class="hero-buttons">
+        <a href="#contacto" class="btn btn-primary">Solicitar Cotización</a>
+        <a href="#servicios" class="btn btn-outline">Conoce Nuestros Servicios</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 10rem 0 6rem;
+    margin-top: 70px;
+  }
+  .hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .btn-outline {
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  .btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      padding: 8rem 0 4rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+    }
+    .hero-buttons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>
